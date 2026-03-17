@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ирина Семенова — Blue Diamond лидер DeFi-U | Ultima</title>
+    <meta name="description" content="Ирина Семенова — Blue Diamond лидер международной команды DeFi-U. Присоединяйтесь к команде и начните зарабатывать с Ultima.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #0a1628;
+            --secondary: #0f2847;
+            --accent: #1e90ff;
+            --accent-light: #4da6ff;
+            --gold: #c9a84c;
+            --gold-light: #e8d48b;
+            --white: #ffffff;
+            --gray: #a0b0c4;
+            --gradient-main: linear-gradient(135deg, #0a1628 0%, #0f2847 50%, #132d5e 100%);
+            --gradient-accent: linear-gradient(135deg, #1e90ff 0%, #4da6ff 100%);
+            --gradient-gold: linear-gradient(135deg, #c9a84c 0%, #e8d48b 50%, #c9a84c 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--primary);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Language toggle */
+        [data-lang-en] { display: none; }
+        html[lang="en"] [data-lang-ru] { display: none; }
+        html[lang="en"] [data-lang-en] { display: initial; }
+        html[lang="en"] span[data-lang-en],
+        html[lang="en"] p[data-lang-en],
+        html[lang="en"] h1[data-lang-en],
+        html[lang="en"] h2[data-lang-en],
+        html[lang="en"] h3[data-lang-en],
+        html[lang="en"] h4[data-lang-en],
+        html[lang="en"] div[data-lang-en],
+        html[lang="en"] a[data-lang-en] { display: block; }
+        html[lang="en"] span.inline[data-lang-en],
+        html[lang="en"] a.inline[data-lang-en] { display: inline; }
+        html[lang="en"] a.inline-flex[data-lang-en] { display: inline-flex; }
+        html[lang="en"] div.inline-flex[data-lang-en] { display: inline-flex; }
+        html[lang="en"] li[data-lang-en] { display: flex; }
+
+        span[data-lang-ru] { display: inline; }
+        p[data-lang-ru], div[data-lang-ru], h1[data-lang-ru], h2[data-lang-ru], h3[data-lang-ru], h4[data-lang-ru] { display: block; }
+        a.inline[data-lang-ru] { display: inline; }
+        a.inline-flex[data-lang-ru] { display: inline-flex; }
+        div.inline-flex[data-lang-ru] { display: inline-flex; }
+        li[data-lang-ru] { display: flex; }
+
+        html[lang="en"] span[data-lang-ru],
+        html[lang="en"] p[data-lang-ru],
+        html[lang="en"] div[data-lang-ru],
+        html[lang="en"] h1[data-lang-ru],
+        html[lang="en"] h2[data-lang-ru],
+        html[lang="en"] h3[data-lang-ru],
+        html[lang="en"] h4[data-lang-ru],
+        html[lang="en"] a[data-lang-ru],
+        html[lang="en"] li[data-lang-ru] { display: none !important; }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 3px;
+            margin-left: 10px;
+        }
+
+        .lang-btn {
+            padding: 5px 12px;
+            border: none;
+            background: transparent;
+            color: var(--gray);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-accent);
+            color: var(--white);
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(30,144,255,0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 20%, rgba(201,168,76,0.06) 0%, transparent 40%);
+            animation: floatBg 20s ease-in-out infinite;
+        }
+
+        @keyframes floatBg {
+            0%, 100% { transform: translate(0,0) rotate(0deg); }
+            50% { transform: translate(-2%,2%) rotate(1deg); }
+        }
+
+        .hero-particles { position: absolute; width: 100%; height: 100%; overflow: hidden; }
+
+        .particle {
+            position: absolute; width: 3px; height: 3px;
+            background: var(--accent); border-radius: 50%; opacity: 0.3;
+            animation: particleFloat 15s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.3; } 90% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            display: flex; align-items: center; gap: 60px;
+            max-width: 1200px; padding: 40px 20px;
+            flex-wrap: wrap; justify-content: center;
+        }
+
+        .hero-photo-wrapper { position: relative; }
+
+        .hero-photo-wrapper::before {
+            content: ''; position: absolute; inset: -4px;
+            border-radius: 50%; background: var(--gradient-gold); z-index: -1;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(201,168,76,0.3); }
+            50% { box-shadow: 0 0 60px rgba(201,168,76,0.5); }
+        }
+
+        .hero-photo {
+            width: 300px; height: 300px; border-radius: 50%;
+            object-fit: cover; object-position: center top;
+            border: 4px solid var(--primary); display: block;
+        }
+
+        .hero-text { max-width: 550px; text-align: left; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.1));
+            border: 1px solid var(--gold); border-radius: 30px;
+            padding: 8px 20px; font-size: 13px; font-weight: 600;
+            color: var(--gold-light); letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 20px;
+        }
+
+        .hero-badge .diamond { font-size: 16px; }
+
+        .hero-text h1 {
+            font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #a0b0c4 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .hero-text h1 span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .hero-text p { font-size: 18px; color: var(--gray); line-height: 1.6; margin-bottom: 30px; font-weight: 300; }
+
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--gradient-accent); color: var(--white);
+            padding: 16px 40px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 16px; letter-spacing: 0.5px;
+            transition: all 0.3s ease; box-shadow: 0 8px 30px rgba(30,144,255,0.3);
+        }
+
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(30,144,255,0.5); }
+        .cta-btn .arrow { transition: transform 0.3s ease; }
+        .cta-btn:hover .arrow { transform: translateX(5px); }
+
+        .scroll-indicator {
+            position: absolute; bottom: 30px; left: 50%;
+            transform: translateX(-50%); z-index: 2; animation: bounce 2s infinite; opacity: 0.5;
+        }
+
+        @keyframes bounce {
+            0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator svg { width: 30px; height: 30px; stroke: var(--accent-light); }
+
+        /* ============ SECTIONS ============ */
+        .section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+
+        .section-title { text-align: center; margin-bottom: 60px; }
+
+        .section-title h2 {
+            font-size: 36px; font-weight: 800; margin-bottom: 12px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .section-title .line { width: 60px; height: 3px; background: var(--gradient-gold); margin: 0 auto; border-radius: 3px; }
+
+        /* About */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .about-text p { font-size: 17px; line-height: 1.8; color: var(--gray); margin-bottom: 20px; font-weight: 300; }
+        .about-text strong { color: var(--white); font-weight: 600; }
+
+        .about-image {
+            border-radius: 20px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 1px solid rgba(30,144,255,0.15);
+        }
+
+        .about-image img { width: 100%; height: 450px; object-fit: cover; display: block; }
+
+        /* Stats */
+        .stats-section {
+            background: linear-gradient(135deg, var(--secondary), rgba(30,144,255,0.05));
+            border-top: 1px solid rgba(30,144,255,0.1);
+            border-bottom: 1px solid rgba(30,144,255,0.1);
+        }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 30px; max-width: 1000px; margin: 0 auto; padding: 80px 20px;
+        }
+
+        .stat-card { text-align: center; padding: 30px 15px; }
+        .stat-icon { font-size: 36px; margin-bottom: 15px; }
+
+        .stat-number {
+            font-size: 38px; font-weight: 800;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .stat-label { font-size: 14px; color: var(--gray); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Features */
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(15,40,71,0.8), rgba(10,22,40,0.9));
+            border: 1px solid rgba(30,144,255,0.12); border-radius: 20px;
+            padding: 40px 30px; text-align: center; transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(30,144,255,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .feature-icon {
+            width: 70px; height: 70px; border-radius: 50%;
+            background: linear-gradient(135deg, rgba(30,144,255,0.15), rgba(30,144,255,0.05));
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-size: 30px;
+        }
+
+        .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: var(--white); }
+        .feature-card p { font-size: 14px; color: var(--gray); line-height: 1.7; font-weight: 300; }
+
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+        .gallery-item {
+            border-radius: 16px; overflow: hidden; position: relative;
+            cursor: pointer; border: 1px solid rgba(30,144,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: rgba(30,144,255,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .gallery-item img { width: 100%; height: 300px; object-fit: cover; display: block; }
+
+        .gallery-item .caption {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(10,22,40,0.9));
+            padding: 40px 15px 15px; font-size: 13px; color: var(--gray); font-weight: 400;
+        }
+
+        .gallery-item.featured { grid-column: span 2; grid-row: span 2; }
+        .gallery-item.featured img { height: 100%; }
+
+        /* DeFi-U section */
+        .defiu-section {
+            background: linear-gradient(135deg, var(--secondary), rgba(30,144,255,0.03));
+            border-top: 1px solid rgba(30,144,255,0.1);
+            border-bottom: 1px solid rgba(30,144,255,0.1);
+        }
+
+        .defiu-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+        .defiu-text h3 { font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--accent-light); }
+        .defiu-text p { font-size: 16px; line-height: 1.8; color: var(--gray); margin-bottom: 16px; font-weight: 300; }
+        .defiu-steps { list-style: none; }
+        .defiu-steps li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
+
+        .step-num {
+            min-width: 44px; height: 44px; border-radius: 50%;
+            background: var(--gradient-accent); display: flex;
+            align-items: center; justify-content: center;
+            font-weight: 800; font-size: 18px;
+        }
+
+        .step-text h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .step-text p { font-size: 14px; color: var(--gray); line-height: 1.5; margin: 0; }
+
+        /* CTA */
+        .cta-section {
+            text-align: center; padding: 100px 20px;
+            background: var(--gradient-main); position: relative; overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at center, rgba(30,144,255,0.08) 0%, transparent 60%);
+        }
+
+        .cta-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+
+        .cta-section h2 { font-size: 40px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+
+        .cta-section h2 span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .cta-section p { font-size: 18px; color: var(--gray); margin-bottom: 40px; line-height: 1.6; font-weight: 300; }
+
+        .cta-btn-large {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: var(--gradient-gold); color: var(--primary);
+            padding: 20px 50px; border-radius: 50px; text-decoration: none;
+            font-weight: 800; font-size: 18px; letter-spacing: 0.5px;
+            transition: all 0.3s ease; box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+        }
+
+        .cta-btn-large:hover { transform: translateY(-3px); box-shadow: 0 12px 50px rgba(201,168,76,0.5); }
+
+        /* Footer */
+        footer {
+            background: rgba(5,10,20,0.8);
+            border-top: 1px solid rgba(30,144,255,0.08);
+            padding: 40px 20px; text-align: center;
+        }
+
+        .footer-brand { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--accent-light); }
+        footer p { font-size: 13px; color: rgba(160,176,196,0.5); }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* Nav */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 15px 30px; display: flex; justify-content: space-between;
+            align-items: center; transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(10,22,40,0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-logo { font-size: 20px; font-weight: 800; color: var(--white); text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+
+        .nav-right { display: flex; align-items: center; gap: 10px; }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+
+        .nav-links a {
+            color: var(--gray); text-decoration: none; font-size: 14px;
+            font-weight: 500; transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--white); }
+
+        .nav-cta {
+            background: var(--gradient-accent);
+            color: var(--white) !important;
+            padding: 8px 22px; border-radius: 25px; font-weight: 600 !important;
+        }
+
+        .burger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none; padding: 5px;
+        }
+
+        .burger span { width: 25px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-text h1 { font-size: 36px; }
+            .hero-content { gap: 30px; }
+            .hero-photo { width: 240px; height: 240px; }
+            .about-grid, .defiu-content { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-item.featured { grid-column: span 1; grid-row: span 1; }
+            .gallery-item.featured img { height: 300px; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-text h1 { font-size: 28px; }
+            .hero-text p { font-size: 15px; }
+            .hero-photo { width: 200px; height: 200px; }
+            .hero-text { text-align: center; }
+            .hero-badge { font-size: 11px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .stat-number { font-size: 28px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .section { padding: 60px 15px; }
+            .cta-section h2 { font-size: 28px; }
+            .section-title h2 { font-size: 28px; }
+
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(10,22,40,0.98); flex-direction: column;
+                padding: 20px 30px; gap: 15px;
+                border-bottom: 1px solid rgba(30,144,255,0.1);
+            }
+
+            .nav-links.open { display: flex; }
+            .burger { display: flex; }
+            .lang-switcher { margin-left: 0; margin-right: 10px; }
+        }
+
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">DeFi-<span>U</span></a>
+        <div class="nav-right">
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="#about" data-lang-ru>Об Ирине</a>
+                    <a href="#about" data-lang-en>About</a>
+                </li>
+                <li>
+                    <a href="#why" data-lang-ru>Преимущества</a>
+                    <a href="#why" data-lang-en>Benefits</a>
+                </li>
+                <li>
+                    <a href="#gallery" data-lang-ru>Галерея</a>
+                    <a href="#gallery" data-lang-en>Gallery</a>
+                </li>
+                <li>
+                    <a href="#defiu" data-lang-ru>Что такое DeFi-U</a>
+                    <a href="#defiu" data-lang-en>What is DeFi-U</a>
+                </li>
+                <li>
+                    <a href="https://defiu.com/ru/partner/d7niuhsl" target="_blank" class="nav-cta inline-flex" data-lang-ru>Присоединиться</a>
+                    <a href="https://defiu.com/ru/partner/d7niuhsl" target="_blank" class="nav-cta inline-flex" data-lang-en>Join Now</a>
+                </li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" id="langRu" onclick="setLang('ru')">RU</button>
+                <button class="lang-btn" id="langEn" onclick="setLang('en')">EN</button>
+            </div>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-photo-wrapper">
+                <img src="photo_2026-03-14_22-06-35.jpg" alt="Ирина Семенова / Irina Semenova" class="hero-photo">
+            </div>
+            <div class="hero-text">
+                <div class="hero-badge inline-flex" data-lang-ru>
+                    <span class="diamond">&#x1F48E;</span> Blue Diamond лидер
+                </div>
+                <div class="hero-badge inline-flex" data-lang-en>
+                    <span class="diamond">&#x1F48E;</span> Blue Diamond Leader
+                </div>
+
+                <h1 data-lang-ru>Ирина <span>Семенова</span></h1>
+                <h1 data-lang-en>Irina <span>Semenova</span></h1>
+
+                <p data-lang-ru>Международный лидер экосистемы Ultima и платформы DeFi-U. Строю глобальную команду партнёров, которые зарабатывают с криптовалютой нового поколения.</p>
+                <p data-lang-en>International leader of the Ultima ecosystem and DeFi-U platform. Building a global team of partners who earn with next-generation cryptocurrency.</p>
+
+                <a href="https://defiu.com/ru/partner/d7niuhsl" target="_blank" class="cta-btn inline-flex" data-lang-ru>
+                    Начать с DeFi-U <span class="arrow">&rarr;</span>
+                </a>
+                <a href="https://defiu.com/ru/partner/d7niuhsl" target="_blank" class="cta-btn inline-flex" data-lang-en>
+                    Start with DeFi-U <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="section-title fade-in">
+            <h2 data-lang-ru>Об Ирине</h2>
+            <h2 data-lang-en>About Irina</h2>
+            <div class="line"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <p data-lang-ru><strong>Ирина Семенова</strong> — признанный лидер со статусом <strong>Blue Diamond</strong> в международной экосистеме Ultima. За годы работы она построила сильную команду партнёров по всему миру.</p>
+                <p data-lang-en><strong>Irina Semenova</strong> is a recognized leader with <strong>Blue Diamond</strong> status in the international Ultima ecosystem. Over the years, she has built a strong team of partners worldwide.</p>
+
+                <p data-lang-ru>Ирина — участник крупнейших международных форумов и конференций Ultima. Она лично обучает и поддерживает каждого партнёра в своей структуре, помогая выйти на стабильный доход.</p>
+                <p data-lang-en>Irina is a participant of the largest international Ultima forums and conferences. She personally trains and supports every partner in her organization, helping them achieve stable income.</p>
+
+                <p data-lang-ru>Её путь — вдохновляющий пример того, как целеустремлённость и правильная платформа открывают двери к финансовой свободе и международному признанию.</p>
+                <p data-lang-en>Her journey is an inspiring example of how determination and the right platform open doors to financial freedom and international recognition.</p>
+            </div>
+            <div class="about-image fade-in">
+                <img src="photo_2025-04-06_22-50-52.jpg" alt="Ирина Семенова — Blue Diamond сертификат Ultima">
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card fade-in">
+                <div class="stat-icon">&#x1F48E;</div>
+                <div class="stat-number">Blue Diamond</div>
+                <div class="stat-label" data-lang-ru>Статус в Ultima</div>
+                <div class="stat-label" data-lang-en>Ultima Status</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-icon">&#x1F30D;</div>
+                <div class="stat-number">10+</div>
+                <div class="stat-label" data-lang-ru>Стран в команде</div>
+                <div class="stat-label" data-lang-en>Countries in Team</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-icon">&#x1F3C6;</div>
+                <div class="stat-number">5+</div>
+                <div class="stat-label" data-lang-ru>Лет в индустрии</div>
+                <div class="stat-label" data-lang-en>Years in Industry</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-icon">&#x1F91D;</div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label" data-lang-ru>Поддержка команды</div>
+                <div class="stat-label" data-lang-en>Team Support</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY DeFi-U -->
+    <section class="section" id="why">
+        <div class="section-title fade-in">
+            <h2 data-lang-ru>Почему DeFi-U?</h2>
+            <h2 data-lang-en>Why DeFi-U?</h2>
+            <div class="line"></div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">&#x26A1;</div>
+                <h3 data-lang-ru>Инновационная платформа</h3>
+                <h3 data-lang-en>Innovative Platform</h3>
+                <p data-lang-ru>DeFi-U — революционный способ получения токенов Ultima через делегированный пул ликвидности на блокчейне.</p>
+                <p data-lang-en>DeFi-U is a revolutionary way to earn Ultima tokens through a delegated liquidity pool on the blockchain.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">&#x1F4B0;</div>
+                <h3 data-lang-ru>Гипердефляционная модель</h3>
+                <h3 data-lang-en>Hyper-Deflationary Model</h3>
+                <p data-lang-ru>Ограниченная эмиссия токенов Ultima создаёт дефицит и потенциал роста стоимости с течением времени.</p>
+                <p data-lang-en>Limited emission of Ultima tokens creates scarcity and potential for value growth over time.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">&#x1F6E1;</div>
+                <h3 data-lang-ru>Безопасность блокчейна</h3>
+                <h3 data-lang-en>Blockchain Security</h3>
+                <p data-lang-ru>Все операции проходят через смарт-контракты — прозрачно, надёжно и без посредников.</p>
+                <p data-lang-en>All operations go through smart contracts — transparent, reliable, and without intermediaries.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">&#x1F465;</div>
+                <h3 data-lang-ru>Сильная команда</h3>
+                <h3 data-lang-en>Strong Team</h3>
+                <p data-lang-ru>Присоединяйтесь к структуре Ирины — получите наставника и поддержку на каждом этапе.</p>
+                <p data-lang-en>Join Irina's organization — get a mentor and support at every step of your journey.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">&#x1F310;</div>
+                <h3 data-lang-ru>Глобальное сообщество</h3>
+                <h3 data-lang-en>Global Community</h3>
+                <p data-lang-ru>Тысячи партнёров из разных стран мира уже работают на платформе DeFi-U.</p>
+                <p data-lang-en>Thousands of partners from different countries are already working on the DeFi-U platform.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">&#x1F680;</div>
+                <h3 data-lang-ru>Простой старт</h3>
+                <h3 data-lang-en>Easy Start</h3>
+                <p data-lang-ru>Регистрация, активация сплит-лицензии — и вы уже участвуете в распределении токенов Ultima.</p>
+                <p data-lang-en>Register, activate your split license — and you're already participating in Ultima token distribution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
+        <div class="section-title fade-in">
+            <h2 data-lang-ru>Моменты успеха</h2>
+            <h2 data-lang-en>Moments of Success</h2>
+            <div class="line"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item featured fade-in">
+                <img src="photo_2024-05-07_21-35-42.jpg" alt="Ирина Семенова на международном форуме Ultima">
+                <div class="caption" data-lang-ru>Международный форум Ultima — награждение лидеров</div>
+                <div class="caption" data-lang-en>International Ultima Forum — Leader Awards Ceremony</div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="photo_2022-11-24_22-25-28.jpg" alt="Ирина с командой на мероприятии PLC Ultima">
+                <div class="caption" data-lang-ru>Команда на мероприятии PLC Ultima</div>
+                <div class="caption" data-lang-en>Team at PLC Ultima Event</div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="photo_2022-12-03_16-11-15.jpg" alt="Ирина с партнёрами">
+                <div class="caption" data-lang-ru>Нетворкинг с партнёрами</div>
+                <div class="caption" data-lang-en>Networking with Partners</div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="photo_2022-12-03_16-11-44.jpg" alt="Ирина на международной конференции">
+                <div class="caption" data-lang-ru>Международное сообщество</div>
+                <div class="caption" data-lang-en>International Community</div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="photo_2025-04-05_01-29-51.jpg" alt="Ирина Семенова — стиль жизни">
+                <div class="caption" data-lang-ru>Путешествия и lifestyle</div>
+                <div class="caption" data-lang-en>Travel & Lifestyle</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT IS DEFI-U -->
+    <section class="defiu-section" id="defiu">
+        <div class="section" style="padding-top: 100px; padding-bottom: 100px;">
+            <div class="section-title fade-in">
+                <h2 data-lang-ru>Что такое DeFi-U?</h2>
+                <h2 data-lang-en>What is DeFi-U?</h2>
+                <div class="line"></div>
+            </div>
+            <div class="defiu-content">
+                <div class="defiu-text fade-in">
+                    <h3 data-lang-ru>Инновационная платформа экосистемы Ultima</h3>
+                    <h3 data-lang-en>Innovative Platform of the Ultima Ecosystem</h3>
+
+                    <p data-lang-ru>DeFi-U — это делегированный пул ликвидности, который позволяет участникам получать вознаграждение в токенах Ultima. Платформа запущена 1 сентября 2023 года и уже объединяет тысячи участников по всему миру.</p>
+                    <p data-lang-en>DeFi-U is a delegated liquidity pool that allows participants to earn rewards in Ultima tokens. The platform was launched on September 1, 2023 and already unites thousands of participants worldwide.</p>
+
+                    <p data-lang-ru>Сплит — это ваша доля в пуле. Чем больше сплитов, тем больше вознаграждение в токенах Ultima, которые распределяются ежедневно среди всех держателей.</p>
+                    <p data-lang-en>A split is your share in the pool. The more splits you have, the greater your reward in Ultima tokens, which are distributed daily among all holders.</p>
+                </div>
+                <ul class="defiu-steps fade-in">
+                    <li data-lang-ru>
+                        <div class="step-num">1</div>
+                        <div class="step-text">
+                            <h4>Регистрация</h4>
+                            <p>Зарегистрируйтесь на платформе DeFi-U по ссылке Ирины</p>
+                        </div>
+                    </li>
+                    <li data-lang-en>
+                        <div class="step-num">1</div>
+                        <div class="step-text">
+                            <h4>Registration</h4>
+                            <p>Register on DeFi-U platform using Irina's referral link</p>
+                        </div>
+                    </li>
+                    <li data-lang-ru>
+                        <div class="step-num">2</div>
+                        <div class="step-text">
+                            <h4>Активация лицензии</h4>
+                            <p>Приобретите и активируйте сплит-лицензию для участия</p>
+                        </div>
+                    </li>
+                    <li data-lang-en>
+                        <div class="step-num">2</div>
+                        <div class="step-text">
+                            <h4>License Activation</h4>
+                            <p>Purchase and activate a split license to participate</p>
+                        </div>
+                    </li>
+                    <li data-lang-ru>
+                        <div class="step-num">3</div>
+                        <div class="step-text">
+                            <h4>Получение сплитов</h4>
+                            <p>Приобретите сплит-контракт и получите долю в пуле</p>
+                        </div>
+                    </li>
+                    <li data-lang-en>
+                        <div class="step-num">3</div>
+                        <div class="step-text">
+                            <h4>Get Splits</h4>
+                            <p>Purchase a split contract and get your share in the pool</p>
+                        </div>
+                    </li>
+                    <li data-lang-ru>
+                        <div class="step-num">4</div>
+                        <div class="step-text">
+                            <h4>Вознаграждение</h4>
+                            <p>Получайте токены Ultima ежедневно как вознаграждение</p>
+                        </div>
+                    </li>
+                    <li data-lang-en>
+                        <div class="step-num">4</div>
+                        <div class="step-text">
+                            <h4>Rewards</h4>
+                            <p>Receive Ultima tokens daily as your reward</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner fade-in">
+            <h2 data-lang-ru>Готовы начать <span>зарабатывать</span> с DeFi-U?</h2>
+            <h2 data-lang-en>Ready to start <span>earning</span> with DeFi-U?</h2>
+
+            <p data-lang-ru>Присоединяйтесь к команде Ирины Семеновой и станьте частью глобальной экосистемы Ultima. Начните свой путь к финансовой свободе уже сегодня.</p>
+            <p data-lang-en>Join Irina Semenova's team and become part of the global Ultima ecosystem. Start your journey to financial freedom today.</p>
+
+            <a href="https://defiu.com/ru/partner/d7niuhsl" target="_blank" class="cta-btn-large inline-flex" data-lang-ru>
+                Присоединиться к команде &#x2192;
+            </a>
+            <a href="https://defiu.com/ru/partner/d7niuhsl" target="_blank" class="cta-btn-large inline-flex" data-lang-en>
+                Join the Team &#x2192;
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-brand">DeFi-U | Irina Semenova</div>
+        <p>&copy; 2024&ndash;2026 &middot; <a href="https://defiu.com/ru/partner/d7niuhsl" target="_blank">defiu.com/ru/partner/d7niuhsl</a></p>
+    </footer>
+
+    <script>
+        // Language switcher
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.getElementById('langRu').classList.toggle('active', lang === 'ru');
+            document.getElementById('langEn').classList.toggle('active', lang === 'en');
+            localStorage.setItem('lang', lang);
+        }
+
+        // Restore saved language
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang) setLang(savedLang);
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Burger menu
+        document.getElementById('burger').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // Intersection Observer for fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Particles
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (10 + Math.random() * 15) + 's';
+            container.appendChild(p);
+        }
+    </script>
+</body>
+</html>
